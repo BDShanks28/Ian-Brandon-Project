@@ -2,7 +2,7 @@ CREATE SCHEMA Movie_Rental;
 
 CREATE TABLE Movie_Rental.customers(
 	customer_ID int,
-    address varchar(11),
+    address varchar(45),
     fname varchar(11),
     minit varchar(11),
     lname varchar(11),
@@ -23,13 +23,14 @@ CREATE TABLE Movie_Rental.inventory(
 	num_of_Movies int,
     m_ID int,
     inventory_Locations varchar(11),
-    primary key (num_of_Movies)
+    primary key (num_of_Movies),
+    foreign key (m_ID) references movie(movie_ID),
+    foreign key (inventory_Locations) references store(store_Location)
 );
 
 CREATE TABLE Movie_Rental.store(
 	store_ID int,
     store_Location varchar(11),
-    inventory_Locations varchar(11),
     primary key (store_ID)
 );
 
@@ -47,5 +48,7 @@ CREATE TABLE Movie_Rental.payment(
     payment_Method varchar(11),
     startDate date,
     endDate date,
-    primary key (payment_ID)
+    primary key (payment_ID),
+    foreign key (startDate) references rent(start_Date),
+    foreign key (endDate) references rent(end_Date)
 );

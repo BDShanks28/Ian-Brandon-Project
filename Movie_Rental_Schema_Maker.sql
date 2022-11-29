@@ -11,27 +11,28 @@ CREATE TABLE Movie_Rental.customers(
 
 CREATE TABLE Movie_Rental.movie(
 	movie_ID int,
-    movie_Format varchar(11),
+    movie_runtime varchar(8),
 	movie_Genre varchar(11),
-	movie_Rating varchar(11),
-    movie_Director varchar(11),
-    movie_Actors varchar(11),
+	movie_Rating varchar(10),
+    movie_Director varchar(45),
+    movie_releaseDate varchar(10),
     primary key (movie_ID)
+);
+
+CREATE TABLE Movie_Rental.store(
+	store_ID int,
+    store_Location varchar(45),
+    primary key (store_ID),
+    UNIQUE (store_Location)
 );
 
 CREATE TABLE Movie_Rental.inventory(
 	num_of_Movies int,
     m_ID int,
-    inventory_Locations varchar(11),
+    inventory_Locations varchar(45),
     primary key (num_of_Movies),
     foreign key (m_ID) references movie(movie_ID),
     foreign key (inventory_Locations) references store(store_Location)
-);
-
-CREATE TABLE Movie_Rental.store(
-	store_ID int,
-    store_Location varchar(11),
-    primary key (store_ID)
 );
 
 CREATE TABLE Movie_Rental.rent(
@@ -39,7 +40,9 @@ CREATE TABLE Movie_Rental.rent(
     start_Date date,
     end_Date date,
     overdue double,
-    primary key (rent_ID)
+    primary key (rent_ID),
+    UNIQUE (start_Date),
+    UNIQUE (end_Date)
 );
 
 CREATE TABLE Movie_Rental.payment(

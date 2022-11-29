@@ -11,6 +11,7 @@ CREATE TABLE Movie_Rental.customers(
 
 CREATE TABLE Movie_Rental.movie(
 	movie_ID int,
+    movie_name varchar(45),
     movie_runtime varchar(8),
 	movie_Genre varchar(11),
 	movie_Rating varchar(10),

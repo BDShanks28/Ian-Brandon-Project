@@ -2,7 +2,7 @@ CREATE SCHEMA Movie_Rental;
 
 CREATE TABLE Movie_Rental.customers(
 	customer_ID int,
-    address varchar(45),
+    address varchar(100),
     fname varchar(11),
     minit varchar(11),
     lname varchar(11),
@@ -32,7 +32,6 @@ CREATE TABLE Movie_Rental.inventory(
     m_ID int,
     inventory_Locations varchar(45),
     primary key (num_of_Movies),
-    foreign key (m_ID) references movie(movie_ID),
     foreign key (inventory_Locations) references store(store_Location)
 );
 

@@ -16,7 +16,7 @@ CREATE TABLE Movie_Rental.movie(
 	movie_Genre varchar(11),
 	movie_Rating varchar(10),
     movie_Director varchar(45),
-    movie_releaseDate varchar(10),
+    movie_releaseDate int,
     primary key (movie_ID)
 );
 

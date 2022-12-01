@@ -384,7 +384,7 @@ public class Javamysqlproject {
                     {
                         e.printStackTrace();
                     }
-                System.out.println("Movie has been added.");
+                System.out.println("Movie has been added./n");
                 break;
                 }
             
@@ -405,7 +405,7 @@ public class Javamysqlproject {
                     {
                         e.printStackTrace();
                     }
-                System.out.println("Movie has been deleted.");
+                System.out.println("Movie has been deleted./n");
                 break;
                 }
             
@@ -450,25 +450,41 @@ public class Javamysqlproject {
                     {
                         e.printStackTrace();
                     }
+            break;
         }
         
         else if (menu == 6){
             try
-                    {
-                        st = dbconn.createStatement();
+            {
+                st = dbconn.createStatement();
 
-                        rs = st.executeQuery("select * from inventory");
-
-                        while (rs.next()) {
-                            System.out.println(rs.getString("num_of_movies") + " " + rs.getString("m_ID") + " " + rs.getString("inventoyr_locations"));
+                rs = st.executeQuery("select * from inventory");
+                
+                
+                
+                while (rs.next()) {
+                    System.out.println(rs.getString("num_of_movies") + " " + rs.getString("m_ID") + " " + rs.getString("inventory_locations"));
         
-                            }
+                }
 
-                    }
-                 catch (Exception e)
-                    {
-                        e.printStackTrace();
-                    }
+                //ResultSetMetaData rsmd = rs.getMetaData();
+                //int columnsNumber = rsmd.getColumnCount();
+
+                //if(rs.next()){
+                    //for(int i = 1; i <= columnsNumber; i++)
+                        //System.out.print(rs.getString(i) + " ");
+                    //System.out.println();
+                //}
+                    //else if(!rs.next()){
+                            //break;
+                //}
+       
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            break;
         }
 
         
